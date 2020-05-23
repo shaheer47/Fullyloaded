@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    tools:context=".UI.CompetitionsDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/TopRelativeLayout"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/Back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:src="@drawable/back"
+            android:tint="@color/white" />
+
+        <ImageView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:tint="@color/white"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/CompetitionRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_below="@id/TopRelativeLayout">
+
+        <ImageView
+            android:id="@+id/CompetitionImageView"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_140sdp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:layout_margin="@dimen/_20sdp"/>
+
+        <!--android:src="@drawable/laptop_big"-->
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/CompetitionRelativeLayout"
+        android:background="@drawable/white_top_corner_rounded_border"
+        android:paddingTop="@dimen/_2sdp"
+        android:elevation="@dimen/_10sdp"
+        tools:ignore="UnusedAttribute">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp">
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:id="@+id/txtCompetitionName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_17sdp"
+                    app:medium="true"
+                    android:layout_marginLeft="@dimen/_15sdp" />
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:id="@+id/txtCompetitionType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="@dimen/_8sdp"
+                    android:textColor="@color/colorPrimary"
+                    app:semi_bold="true"
+                    android:background="@drawable/rounded_corner_border_colorprimary"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:id="@+id/txtCompetitionPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="£2.25"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_24sdp"
+                    app:semi_bold="true"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_centerVertical="true"/>
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:id="@+id/txtQuiz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_18sdp"
+                    android:text="Participate"
+                    android:textColor="@color/white"
+                    app:medium="true"
+                    android:background="@drawable/rounded_corner_border"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingRight="@dimen/_15sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_15sdp"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/colorPrimary"
+                android:layout_margin="@dimen/_10sdp"/>
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_22sdp"
+                android:text="Specifications : "
+                android:textColor="@color/black"
+                app:medium="true"
+                android:layout_marginLeft="@dimen/_15sdp"/>
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:id="@+id/txtSpecifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15sdp"
+                android:text=""
+                android:textColor="@color/light_grey"
+                app:regular="true"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_10sdp"/>
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_22sdp"
+                android:text="Description"
+                android:textColor="@color/black"
+                app:medium="true"
+                android:layout_marginLeft="@dimen/_15sdp"/>
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:id="@+id/txtDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15sdp"
+                android:text=""
+                android:textColor="@color/light_grey"
+                app:regular="true"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_10sdp"/>
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:id="@+id/txtCurrentCompetitionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_22sdp"
+                android:text="Current Competitions"
+                android:textColor="@color/black"
+                app:medium="true"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:visibility="gone"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/CurrentCompetitionsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:id="@+id/txtErrorTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No More Similar Current Competitions Available..."
+                android:textSize="@dimen/_15sdp"
+                app:medium="true"
+                android:textColor="@color/colorAccent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_margin="@dimen/_10sdp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/colorPrimary"
+        android:visibility="gone"/>
+
+</RelativeLayout>

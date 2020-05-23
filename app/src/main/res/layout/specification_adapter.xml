@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/MainLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:src="@drawable/checked"
+            android:tint="@color/colorPrimary"
+            android:scaleType="fitXY"
+            android:layout_margin="@dimen/_5sdp"/>
+
+        <com.app.fullyloaded.Utility.MyTextView
+            android:id="@+id/txtSpecification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Win £1000 Cash With The Car!"
+            android:textColor="@color/light_grey"
+            android:textSize="@dimen/_15sdp"
+            app:regular="true"
+            android:layout_margin="@dimen/_5sdp"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

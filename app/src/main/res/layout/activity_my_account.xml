@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.MyAccountActivity"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:id="@+id/TopRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/Back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/back"
+            android:tint="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10sdp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/WelcomeBackRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:layout_below="@id/TopRelativeLayout"
+        android:background="@drawable/my_account_bg">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_25sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/Profile"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:src="@drawable/profile"
+                android:layout_centerHorizontal="true"/>
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:id="@+id/ProfileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jhon Donga"
+                android:textSize="@dimen/_22sdp"
+                app:medium="true"
+                android:textColor="@color/white"
+                android:layout_below="@id/Profile"
+                android:layout_centerHorizontal="true"/>
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:id="@+id/ProfileEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jhondonga12@gmail.com"
+                android:textSize="@dimen/_13sdp"
+                app:regular="true"
+                android:textColor="@color/white"
+                android:layout_below="@id/ProfileName"
+                android:layout_marginTop="-5dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/WelcomeBackRelativeLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/DashBoardCardView"
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="@dimen/_130sdp"
+                    app:cardCornerRadius="@dimen/_20sdp"
+                    android:layout_margin="@dimen/_5sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/DashBoard"
+                            android:layout_width="@dimen/_55sdp"
+                            android:layout_height="@dimen/_45sdp"
+                            android:src="@drawable/dashboard"
+                            android:layout_centerInParent="true"/>
+
+                        <com.app.fullyloaded.Utility.MyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dashboard"
+                            android:textSize="@dimen/_18sdp"
+                            app:medium="true"
+                            android:textColor="@color/dark_grey"
+                            android:layout_centerInParent="true"
+                            android:layout_below="@id/DashBoard"/>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/OrderCardView"
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="@dimen/_130sdp"
+                    app:cardCornerRadius="@dimen/_20sdp"
+                    android:layout_margin="@dimen/_5sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/Order"
+                            android:layout_width="@dimen/_55sdp"
+                            android:layout_height="@dimen/_45sdp"
+                            android:src="@drawable/order"
+                            android:layout_centerInParent="true"/>
+
+                        <com.app.fullyloaded.Utility.MyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Orders"
+                            android:textSize="@dimen/_18sdp"
+                            app:medium="true"
+                            android:textColor="@color/dark_grey"
+                            android:layout_centerInParent="true"
+                            android:layout_below="@id/Order"/>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/AddressCardView"
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="@dimen/_130sdp"
+                    app:cardCornerRadius="@dimen/_20sdp"
+                    android:layout_margin="@dimen/_5sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/Address"
+                            android:layout_width="@dimen/_55sdp"
+                            android:layout_height="@dimen/_45sdp"
+                            android:src="@drawable/address"
+                            android:layout_centerInParent="true"/>
+
+                        <com.app.fullyloaded.Utility.MyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Addresses"
+                            android:textSize="@dimen/_18sdp"
+                            app:medium="true"
+                            android:textColor="@color/dark_grey"
+                            android:layout_centerInParent="true"
+                            android:layout_below="@id/Address"/>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/LogoutCardView"
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="@dimen/_130sdp"
+                    app:cardCornerRadius="@dimen/_20sdp"
+                    android:layout_margin="@dimen/_5sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/Logout"
+                            android:layout_width="@dimen/_55sdp"
+                            android:layout_height="@dimen/_45sdp"
+                            android:src="@drawable/logout"
+                            android:layout_centerInParent="true"/>
+
+                        <com.app.fullyloaded.Utility.MyTextView
+                            android:id="@+id/txtLoginLogout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Logout"
+                            android:textSize="@dimen/_18sdp"
+                            app:medium="true"
+                            android:textColor="@color/dark_grey"
+                            android:layout_centerInParent="true"
+                            android:layout_below="@id/Logout"/>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

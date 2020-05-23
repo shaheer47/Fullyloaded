@@ -1,0 +1,37 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <declare-styleable name="MyTextView">
+        <attr name="black" format="boolean" />
+        <attr name="black_italic" format="boolean" />
+        <attr name="bold" format="boolean" />
+        <attr name="bold_italic" format="boolean" />
+        <attr name="extra_bold" format="boolean" />
+        <attr name="extra_bold_italic" format="boolean" />
+        <attr name="light" format="boolean" />
+        <attr name="light_italic" format="boolean" />
+        <attr name="italic" format="boolean" />
+        <attr name="extra_light" format="boolean" />
+        <attr name="extra_light_italic" format="boolean" />
+        <attr name="medium" format="boolean" />
+        <attr name="medium_italic" format="boolean" />
+        <attr name="regular" format="boolean" />
+        <attr name="semi_bold" format="boolean" />
+        <attr name="semi_bold_italic" format="boolean" />
+        <attr name="thin" format="boolean" />
+        <attr name="thin_italic" format="boolean" />
+    </declare-styleable>
+
+</resources>

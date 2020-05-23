@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_margin="@dimen/_5sdp"
+    android:background="@drawable/square_corner_border"
+    android:id="@+id/MainRelativeLayout">
+
+    <ImageView
+        android:id="@+id/CurrentCompetitionsProductImage"
+        android:layout_width="@dimen/_125sdp"
+        android:layout_height="@dimen/_125sdp"
+        android:src="@drawable/laptop"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_centerHorizontal="true"/>
+
+    <com.app.fullyloaded.Utility.MyTextView
+        android:id="@+id/txtCurrentCompetitionsProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/CurrentCompetitionsProductImage"
+        android:text="Sample Product"
+        android:textSize="@dimen/_13sdp"
+        android:textColor="@color/black"
+        app:medium="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-10dp"/>
+
+    <LinearLayout
+        android:id="@+id/CurrentCompetitionsProductNameLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txtCurrentCompetitionsProductName">
+
+        <com.app.fullyloaded.Utility.MyTextView
+            android:id="@+id/txtCurrentCompetitionsProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="£2.25"
+            android:textSize="@dimen/_13sdp"
+            android:textColor="@color/colorPrimary"
+            app:semi_bold="true" />
+
+        <com.app.fullyloaded.Utility.MyTextView
+            android:id="@+id/txtTech"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tech"
+            android:textSize="@dimen/_8sdp"
+            android:textColor="@color/colorPrimary"
+            app:semi_bold="true"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_corner_border_colorprimary"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:layout_marginLeft="@dimen/_10sdp"/>
+
+    </LinearLayout>
+
+    <com.app.fullyloaded.Utility.MyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/CurrentCompetitionsProductNameLinearLayout"
+        android:textSize="@dimen/_12sdp"
+        android:text="Participate"
+        android:textColor="@color/white"
+        app:medium="true"
+        android:paddingLeft="@dimen/_20sdp"
+        android:paddingRight="@dimen/_20sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:background="@drawable/rounded_corner_border"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_5sdp"/>
+
+</RelativeLayout>

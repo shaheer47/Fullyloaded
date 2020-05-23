@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.LoginActivity"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:id="@+id/TopRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/Back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/back"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10sdp"/>
+
+        <ImageView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:tint="@color/colorPrimary"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/WelcomeBackRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TopRelativeLayout">
+
+        <com.app.fullyloaded.Utility.MyTextView
+            android:id="@+id/txtCreateAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create an Account"
+            android:textSize="@dimen/_35sdp"
+            app:semi_bold="true"
+            android:textColor="@color/colorPrimary"
+            android:layout_margin="@dimen/_30sdp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_10sdp"
+            android:background="@drawable/white_top_corner_rounded_border"
+            android:backgroundTint="@color/background"
+            android:layout_below="@id/txtCreateAccount"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"/>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/WelcomeBackRelativeLayout"
+        android:background="@drawable/white_top_corner_rounded_border"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_marginTop="-7dp"
+        android:paddingTop="@dimen/_5sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:padding="@dimen/_20sdp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/white">
+
+                <com.app.fullyloaded.Utility.MyEditText
+                    android:id="@+id/edtUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    app:regular="true"
+                    android:hint="Username*"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:background="@drawable/edt_bg_selector_white"
+                    android:textCursorDrawable="@drawable/color_cursor_white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/white">
+
+                <com.app.fullyloaded.Utility.MyEditText
+                    android:id="@+id/edtEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    app:regular="true"
+                    android:hint="Email Address*"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:background="@drawable/edt_bg_selector_white"
+                    android:textCursorDrawable="@drawable/color_cursor_white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/white">
+
+                <com.app.fullyloaded.Utility.MyEditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    app:regular="true"
+                    android:hint="Password*"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:background="@drawable/edt_bg_selector_white"
+                    android:textCursorDrawable="@drawable/color_cursor_white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/CheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Subscribe to our Newsletter to keep updated and see who wins!"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="top"/>
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:id="@+id/txtRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/rounded_corner_border"
+                android:backgroundTint="@color/white"
+                android:gravity="center"
+                android:padding="@dimen/_2sdp"
+                android:text="Register"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_20sdp"
+                app:semi_bold="true" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center">
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="Already have an account?"
+                    android:textColor="@color/white"
+                    app:medium="true"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_gravity="bottom"/>
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:id="@+id/txtLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_15sdp"
+                    android:text="Login"
+                    android:textColor="@color/white"
+                    app:medium="true"
+                    android:padding="@dimen/_5sdp"
+                    android:gravity="bottom"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/white"
+        android:visibility="gone"/>
+
+</RelativeLayout>

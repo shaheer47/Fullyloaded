@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.ChooseCartItemActivity"
+    android:background="@color/colorPrimary"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:id="@+id/TopRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/Back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/back"
+            android:tint="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10sdp"/>
+
+        <ImageView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:tint="@color/white"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/_2sdp"
+        android:layout_below="@id/TopRelativeLayout"
+        android:background="@drawable/white_top_corner_rounded_border"
+        android:backgroundTint="@color/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_15sdp"
+            android:background="@drawable/white_top_corner_rounded_border"
+            android:backgroundTint="@color/background">
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:id="@+id/txtQuiz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What would you most commonly cut the grass with?"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"
+                app:semi_bold="true"/>
+
+            <RadioGroup
+                android:id="@+id/OptionRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/OptionOneRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"
+                    app:medium="true"
+                    android:gravity="left"
+                    android:layout_margin="@dimen/_5sdp"/>
+
+                <RadioButton
+                    android:id="@+id/OptionTwoRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"
+                    app:medium="true"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/_5sdp"/>
+
+                <RadioButton
+                    android:id="@+id/OptionThreeRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"
+                    app:medium="true"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/_5sdp"/>
+
+                <RadioButton
+                    android:id="@+id/OptionFourRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"
+                    app:medium="true"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/_5sdp"/>
+
+            </RadioGroup>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center_vertical">
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Quantity : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18sdp"
+                    app:semi_bold="true"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_centerVertical="true"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/rounded_corner_border">
+
+                    <RelativeLayout
+                        android:id="@+id/LessQuantityRelativeLayout"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/left_corner_background">
+
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/minus"
+                            android:tint="@color/white"
+                            android:layout_centerInParent="true"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <com.app.fullyloaded.Utility.MyTextView
+                            android:id="@+id/txtQuantity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_16sdp"
+                            app:semi_bold="true"
+                            android:layout_centerInParent="true"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/PlusQuantityRelativeLayout"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/right_corner_background">
+
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/plus"
+                            android:tint="@color/white"
+                            android:layout_centerInParent="true"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/BottomRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/white_top_corner_rounded_border"
+        android:backgroundTint="@color/colorPrimary">
+
+        <com.app.fullyloaded.Utility.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add to cart"
+            android:textSize="@dimen/_20sdp"
+            app:semi_bold="true"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/colorAccent"
+        android:visibility="gone"/>
+
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/_150sdp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_margin="@dimen/_5sdp"
+    android:background="@drawable/square_corner_border"
+    android:id="@+id/MainRelativeLayout">
+
+    <ImageView
+        android:id="@+id/CurrentCompetitionImage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_130sdp"
+        android:src="@drawable/bmw"
+        android:scaleType="fitXY"/>
+
+    <com.app.fullyloaded.Utility.MyTextView
+        android:id="@+id/txtCurrentCompetitionName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/CurrentCompetitionImage"
+        android:text="Sample Product"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/black"
+        app:medium="true"
+        android:layout_centerHorizontal="true"
+        android:padding="@dimen/_5sdp"/>
+
+    <com.app.fullyloaded.Utility.MyTextView
+        android:id="@+id/txtCurrentCompetitionPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtCurrentCompetitionName"
+        android:text="£2.25"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/colorPrimary"
+        app:semi_bold="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-10dp"/>
+
+    <com.app.fullyloaded.Utility.MyTextView
+        android:id="@+id/txtParticipate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtCurrentCompetitionPrice"
+        android:textSize="@dimen/_10sdp"
+        android:text="Participate"
+        android:textColor="@color/white"
+        app:medium="true"
+        android:paddingLeft="@dimen/_20sdp"
+        android:paddingRight="@dimen/_20sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:background="@drawable/rounded_corner_border"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_5sdp"/>
+
+</RelativeLayout>

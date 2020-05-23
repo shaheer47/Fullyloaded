@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_margin="@dimen/_2sdp"
+    android:background="@drawable/rounded_corner_border"
+    android:id="@+id/MainRelativeLayout">
+
+    <ImageView
+        android:id="@+id/PreviousWinnerImage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_90sdp"
+        android:src="@drawable/previous_winners"
+        android:scaleType="fitXY"
+        android:layout_margin="@dimen/_2sdp"/>
+
+    <com.app.fullyloaded.Utility.MyTextView
+        android:id="@+id/txtPreviousWinnerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/PreviousWinnerImage"
+        android:text="Jhon Donga"
+        android:textSize="@dimen/_15sdp"
+        android:textColor="@color/black"
+        app:semi_bold="true"
+        android:layout_centerHorizontal="true"
+        android:padding="@dimen/_5sdp"/>
+
+    <com.app.fullyloaded.Utility.MyTextView
+        android:id="@+id/txtPreviousWinningDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtPreviousWinnerName"
+        android:text="10-01-2020"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@color/dark_grey"
+        app:medium="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-10dp"/>
+
+    <com.app.fullyloaded.Utility.MyTextView
+        android:id="@+id/txtPreviousWinningDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtPreviousWinningDate"
+        android:text="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type."
+        android:textSize="@dimen/_12sdp"
+        android:textColor="@color/dark_grey"
+        app:regular="true"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:gravity="center"/>
+
+</RelativeLayout>

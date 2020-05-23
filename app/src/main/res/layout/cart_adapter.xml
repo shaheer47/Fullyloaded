@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_90sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    android:elevation="@dimen/_10sdp"
+    android:layout_margin="@dimen/_5sdp">
+
+    <LinearLayout
+        android:id="@+id/MainLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/CompetitionImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/lottery_tickets"
+            android:scaleType="fitXY"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:id="@+id/txtProductName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Win £1000 Cash With The Car!"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp"
+                    app:semi_bold="true"
+                    android:singleLine="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_5sdp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="Ticket : "
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13sdp"
+                    app:semi_bold="true"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/_5sdp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.app.fullyloaded.Utility.MyTextView
+                        android:id="@+id/txtQuantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="38"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp"
+                        app:semi_bold="true"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/square_corner_border"
+                        android:backgroundTint="@color/colorPrimary"/>
+
+                    <!--<com.app.fullyloaded.Utility.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="39"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp"
+                        app:semi_bold="true"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:background="@drawable/square_corner_border"
+                        android:backgroundTint="@color/colorPrimary"/>
+
+                    <com.app.fullyloaded.Utility.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="40"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp"
+                        app:semi_bold="true"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:background="@drawable/square_corner_border"
+                        android:backgroundTint="@color/colorPrimary"/>-->
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:id="@+id/txtProductPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="£2.00"
+                    android:textSize="@dimen/_20sdp"
+                    android:textColor="@color/black"
+                    app:medium="true"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/_5sdp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

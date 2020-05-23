@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.TicketsPurchasedSuccessfullyActivity"
+    android:background="@color/colorPrimary"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:id="@+id/TopRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/Back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/back"
+            android:tint="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10sdp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/TopRelativeLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/checked"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:src="@drawable/checked_successfully"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"/>
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:id="@+id/txtTicketPurchasedStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Successfully Purchased 4 Tickets"
+                android:textSize="@dimen/_25sdp"
+                app:semi_bold="true"
+                android:textColor="@color/white"
+                android:layout_below="@id/checked"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"/>
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:id="@+id/txtConfirmationStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We sent a confirmation email with Detail to Demo@gmail.com"
+                android:textSize="@dimen/_18sdp"
+                app:regular="true"
+                android:textColor="@color/white"
+                android:layout_below="@id/txtTicketPurchasedStatus"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"/>
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:id="@+id/txtDone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtConfirmationStatus"
+                android:textSize="@dimen/_22sdp"
+                android:text="Done"
+                android:textColor="@color/colorPrimary"
+                app:semi_bold="true"
+                android:padding="@dimen/_5sdp"
+                android:background="@drawable/rounded_corner_border"
+                android:backgroundTint="@color/white"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_margin="@dimen/_20sdp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

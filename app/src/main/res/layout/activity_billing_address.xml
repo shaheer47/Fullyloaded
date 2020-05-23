@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.BillingAddressActivity"
+    android:background="@color/colorPrimary"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:id="@+id/TopRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/Back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/back"
+            android:tint="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10sdp"/>
+
+        <ImageView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:tint="@color/white"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/_2sdp"
+        android:layout_below="@id/TopRelativeLayout"
+        android:background="@drawable/white_top_corner_rounded_border">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_15sdp"
+            android:background="@drawable/white_top_corner_rounded_border">
+
+            <com.app.fullyloaded.Utility.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Billing Address"
+                android:textSize="@dimen/_20sdp"
+                app:semi_bold="true"
+                android:textColor="@color/colorPrimary"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.app.fullyloaded.Utility.MyEditText
+                    android:id="@+id/edtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    app:regular="true"
+                    android:hint="Name"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/edt_bg_selector_grey"
+                    android:textCursorDrawable="@drawable/cursor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.app.fullyloaded.Utility.MyEditText
+                    android:id="@+id/edtCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    app:regular="true"
+                    android:hint="Country"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/edt_bg_selector_grey"
+                    android:textCursorDrawable="@drawable/cursor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.app.fullyloaded.Utility.MyEditText
+                    android:id="@+id/edtStreetAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    app:regular="true"
+                    android:hint="Street address"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/edt_bg_selector_grey"
+                    android:textCursorDrawable="@drawable/cursor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.app.fullyloaded.Utility.MyEditText
+                    android:id="@+id/edtTownCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    app:regular="true"
+                    android:hint="Town/City"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/edt_bg_selector_grey"
+                    android:textCursorDrawable="@drawable/cursor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.app.fullyloaded.Utility.MyEditText
+                    android:id="@+id/edtStateCounty"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    app:regular="true"
+                    android:hint="State/County"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/edt_bg_selector_grey"
+                    android:textCursorDrawable="@drawable/cursor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.app.fullyloaded.Utility.MyEditText
+                    android:id="@+id/edtPostalCodeZipCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    app:regular="true"
+                    android:hint="Postal code/Zip code"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/edt_bg_selector_grey"
+                    android:textCursorDrawable="@drawable/cursor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.app.fullyloaded.Utility.MyEditText
+                    android:id="@+id/edtMobileNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    app:regular="true"
+                    android:hint="Mobile Number"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/edt_bg_selector_grey"
+                    android:textCursorDrawable="@drawable/cursor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.app.fullyloaded.Utility.MyEditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:imeOptions="actionDone"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    app:regular="true"
+                    android:hint="Email"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/edt_bg_selector_grey"
+                    android:textCursorDrawable="@drawable/cursor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:id="@+id/txtCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtCurrentCompetitionsProductPrice"
+                    android:textSize="@dimen/_15sdp"
+                    android:text="Cancel"
+                    android:textColor="@color/colorPrimary"
+                    app:semi_bold="true"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@drawable/full_rounded_corner_border_colorprimary"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:gravity="center"/>
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:id="@+id/txtSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtCurrentCompetitionsProductPrice"
+                    android:textSize="@dimen/_15sdp"
+                    android:text="Save"
+                    android:textColor="@color/white"
+                    app:semi_bold="true"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@drawable/full_rounded_corner_border_colorprimary"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/colorAccent"
+        android:visibility="gone"/>
+
+</RelativeLayout>
