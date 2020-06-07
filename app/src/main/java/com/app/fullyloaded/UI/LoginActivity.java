@@ -24,6 +24,7 @@ import com.app.fullyloaded.R;
 import com.app.fullyloaded.Utility.MyEditText;
 import com.app.fullyloaded.Utility.MyTextView;
 import com.app.fullyloaded.VolleySupport.AppController;
+import com.app.fullyloaded.sharedPreference.SharedPreferencesEditor;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONObject;
@@ -41,6 +42,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     CheckBox checkBox;
     boolean check = false;
     SharedPreferences sharedPreferences, preferences, getSharedPreferences;
+    SharedPreferencesEditor localStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         getSupportActionBar().hide();
 
         mContext = this;
+        localStorage = new SharedPreferencesEditor(this);
 
         Init();
 
@@ -57,6 +60,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void Init() {
+
+        if(localStorage.IsLoggedIn()){
+            Intent intent = new Intent(mContext, MyAccountActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
         preferences = getSharedPreferences("Token", MODE_PRIVATE);
         sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
         getSharedPreferences = getSharedPreferences("Remember", MODE_PRIVATE);
@@ -152,6 +162,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         sharedPreferencesEditor.putString("UpdatedAt", jsonLogin.getString("updated_at"));
                         sharedPreferencesEditor.putString("Token", jsonLogin.getString("token"));
                         sharedPreferencesEditor.commit();
+                        localStorage.setLoggedIn(true);
                         Intent intent = new Intent(mContext, HomeActivity.class);
                         startActivity(intent);
                         finish();

@@ -1,2 +1,2 @@
 rootProject.name='Fullyloaded'
-include ':app'
+include ':app', ':oppwa.mobile-2.49.0'

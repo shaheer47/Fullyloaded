@@ -169,7 +169,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
                     String Success = JsonMain.getString("success");
                     if (Success.equalsIgnoreCase("true")) {
                         String TransactionID = JsonMain.getString("transaction_id");
-                        Log.e("TransactionID","" + TransactionID);
+                        Log.e("TransactionID", "" + TransactionID);
                         SavePaymentApi(TransactionID);
                     } else {
                         Toast.makeText(mContext, message, Toast.LENGTH_LONG).show();

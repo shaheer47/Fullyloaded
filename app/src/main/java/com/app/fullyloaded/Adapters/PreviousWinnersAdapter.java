@@ -1,11 +1,12 @@
 package com.app.fullyloaded.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +31,6 @@ public class PreviousWinnersAdapter extends RecyclerView.Adapter<PreviousWinners
             super(view);
 
             PreviousWinnerImage = view.findViewById(R.id.PreviousWinnerImage);
-
             txtPreviousWinnerName = view.findViewById(R.id.txtPreviousWinnerName);
             txtPreviousWinningDate = view.findViewById(R.id.txtPreviousWinningDate);
             txtPreviousWinningDescription = view.findViewById(R.id.txtPreviousWinningDescription);
@@ -54,7 +54,7 @@ public class PreviousWinnersAdapter extends RecyclerView.Adapter<PreviousWinners
 
         String ProfileImage = previousWinners.getProfileImage();
         String UserName = previousWinners.getUserName();
-        String WinningDate = previousWinners.getWinningDate();
+//        String WinningDate = previousWinners.getWinningDate();
         String Description = previousWinners.getDescription();
 
         if (ProfileImage.equals("") || ProfileImage.equals("null") || ProfileImage.equals(null) || ProfileImage == null) {
@@ -66,19 +66,19 @@ public class PreviousWinnersAdapter extends RecyclerView.Adapter<PreviousWinners
         if (UserName.equals("") || UserName.equals("null") || UserName.equals(null) || UserName == null) {
 
         } else {
-            holder.txtPreviousWinnerName.setText(UserName);
+            holder.txtPreviousWinnerName.setText(Html.fromHtml(UserName), TextView.BufferType.SPANNABLE);
         }
 
-        if (WinningDate.equals("") || WinningDate.equals("null") || WinningDate.equals(null) || WinningDate == null) {
-
-        } else {
-            holder.txtPreviousWinningDate.setText(WinningDate);
-        }
+//        if (WinningDate.equals("") || WinningDate.equals("null") || WinningDate.equals(null) || WinningDate == null) {
+//
+//        } else {
+//            holder.txtPreviousWinningDate.setText(WinningDate);
+//        }
 
         if (Description.equals("") || Description.equals("null") || Description.equals(null) || Description == null) {
 
         } else {
-            holder.txtPreviousWinningDescription.setText(Description);
+            holder.txtPreviousWinningDescription.setText(Html.fromHtml(Description), TextView.BufferType.SPANNABLE);
         }
     }
 

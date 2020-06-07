@@ -8,6 +8,8 @@
     android:background="@color/colorPrimary"
     android:focusableInTouchMode="true">
 
+
+
     <RelativeLayout
         android:id="@+id/TopRelativeLayout"
         android:layout_width="match_parent"

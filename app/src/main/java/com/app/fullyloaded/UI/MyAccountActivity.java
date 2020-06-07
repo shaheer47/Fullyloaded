@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 
 import com.app.fullyloaded.R;
 import com.app.fullyloaded.Utility.MyTextView;
+import com.app.fullyloaded.sharedPreference.SharedPreferencesEditor;
 
 public class MyAccountActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +25,7 @@ public class MyAccountActivity extends AppCompatActivity implements View.OnClick
     MyTextView txtLoginLogout, ProfileName, ProfileEmail;
     String UserID;
     SharedPreferences sharedPreferences, preferences, getSharedPreferences;
+    SharedPreferencesEditor localStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class MyAccountActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_my_account);
 
         getSupportActionBar().hide();
+        localStorage = new SharedPreferencesEditor(this);
 
         mContext = this;
 
@@ -78,11 +81,11 @@ public class MyAccountActivity extends AppCompatActivity implements View.OnClick
                 startActivity(intent);
                 break;
             case R.id.AddressCardView:
-                Intent i = new Intent(mContext, BillingAddressActivity.class);
+                Intent i = new Intent(mContext, AddressesActivity.class);
                 startActivity(i);
                 break;
             case R.id.LogoutCardView:
-                if (UserID.equals("0")) {
+                if (!localStorage.IsLoggedIn()) {
                     Intent intent2 = new Intent(mContext, LoginActivity.class);
                     startActivity(intent2);
                     finish();
@@ -109,6 +112,7 @@ public class MyAccountActivity extends AppCompatActivity implements View.OnClick
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("UserID", "0");
                 editor.clear().commit();
+                localStorage.setLoggedIn(false);
                 Intent intent = new Intent(mContext, LoginActivity.class);
                 startActivity(intent);
                 finish();
@@ -127,7 +131,7 @@ public class MyAccountActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     protected void onResume() {
-        if (UserID.equals("0")) {
+        if (!localStorage.IsLoggedIn()) {
             txtLoginLogout.setText("Login");
         } else {
             txtLoginLogout.setText("Logout");

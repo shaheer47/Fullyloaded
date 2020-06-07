@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.fullyloaded.AppConstants.APIConstant;
 import com.app.fullyloaded.R;
-import com.google.firebase.iid.FirebaseInstanceId;
 
 public class SplashActivity extends AppCompatActivity {
 

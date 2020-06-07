@@ -8,7 +8,6 @@ import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.fullyloaded.Models.CurrentCompetitionsModel;
 import com.app.fullyloaded.Models.CurrentTechCompetitionsModel;
 import com.app.fullyloaded.R;
 

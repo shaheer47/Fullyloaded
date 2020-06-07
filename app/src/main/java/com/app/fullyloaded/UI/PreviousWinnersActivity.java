@@ -90,17 +90,22 @@ public class PreviousWinnersActivity extends AppCompatActivity implements View.O
                     String message = JsonMain.getString("message");
                     String Status = JsonMain.getString("status");
                     if (Status.equalsIgnoreCase("SUCCESS")) {
-                        JSONArray jsonPreviousWinners = JsonMain.getJSONArray("previousWinners");
+                        JSONArray jsonPreviousWinners = JsonMain.getJSONArray("data");
                         for (int i = 0; i < jsonPreviousWinners.length(); i++) {
                             PreviousWinnersModel previousWinnersModel = new PreviousWinnersModel();
-                            previousWinnersModel.setProfileImage(jsonPreviousWinners.getJSONObject(i).getString("profile_image"));
-                            previousWinnersModel.setWinningDate(jsonPreviousWinners.getJSONObject(i).getString("winning_date"));
-                            previousWinnersModel.setUserName(jsonPreviousWinners.getJSONObject(i).getString("user_name"));
+
+                            previousWinnersModel.setProfileImage(jsonPreviousWinners.getJSONObject(i).getString("image"));
                             previousWinnersModel.setDescription(jsonPreviousWinners.getJSONObject(i).getString("description"));
-                            previousWinnersModel.setCompetitionID(jsonPreviousWinners.getJSONObject(i).getString("competiotion_id"));
-                            previousWinnersModel.setCompetitionName(jsonPreviousWinners.getJSONObject(i).getString("competition_name"));
-                            previousWinnersModel.setCompetitionImage(jsonPreviousWinners.getJSONObject(i).getString("competition_image"));
-                            previousWinnersModel.setCompetitionSpecification(jsonPreviousWinners.getJSONObject(i).getString("competition_specification"));
+                            previousWinnersModel.setUserName(jsonPreviousWinners.getJSONObject(i).getString("name"));
+
+//                            previousWinnersModel.setProfileImage(jsonPreviousWinners.getJSONObject(i).getString("profile_image"));
+//                            previousWinnersModel.setWinningDate(jsonPreviousWinners.getJSONObject(i).getString("winning_date"));
+//                            previousWinnersModel.setUserName(jsonPreviousWinners.getJSONObject(i).getString("user_name"));
+//                            previousWinnersModel.setDescription(jsonPreviousWinners.getJSONObject(i).getString("description"));
+//                            previousWinnersModel.setCompetitionID(jsonPreviousWinners.getJSONObject(i).getString("competiotion_id"));
+//                            previousWinnersModel.setCompetitionName(jsonPreviousWinners.getJSONObject(i).getString("competition_name"));
+//                            previousWinnersModel.setCompetitionImage(jsonPreviousWinners.getJSONObject(i).getString("competition_image"));
+//                            previousWinnersModel.setCompetitionSpecification(jsonPreviousWinners.getJSONObject(i).getString("competition_specification"));
                             previousWinnersList.add(previousWinnersModel);
                         }
                         if (previousWinnersList.size() > 0) {

@@ -11,5 +11,7 @@
     <string name="get_in_touch">Get in touch</string>
     <string name="terms_condition">Terms &amp; Conditions</string>
     <string name="privacy_policy">Privacy Policy</string>
+    <string name="remove_coupon_text">Are you sure you want to remove coupon?</string>
+    <string name="remove_product_text">Are you sure want to remove this product?</string>
 
 </resources>

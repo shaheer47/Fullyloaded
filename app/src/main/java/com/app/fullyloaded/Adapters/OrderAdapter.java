@@ -8,7 +8,6 @@ import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.fullyloaded.Models.CartModel;
 import com.app.fullyloaded.Models.OrderModel;
 import com.app.fullyloaded.R;
 import com.app.fullyloaded.Utility.MyTextView;
@@ -72,7 +71,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
         if (ProductPrice.equals("") || ProductPrice.equals("null") || ProductPrice.equals(null) || ProductPrice == null) {
 
         } else {
-            holder.txtProductPrice.setText(ProductName);
+            holder.txtProductPrice.setText("£ "+ProductPrice);
         }
 
         if (ProductQuantity.equals("") || ProductQuantity.equals("null") || ProductQuantity.equals(null) || ProductQuantity == null) {

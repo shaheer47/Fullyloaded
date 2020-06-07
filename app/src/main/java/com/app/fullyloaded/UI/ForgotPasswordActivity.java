@@ -1,12 +1,10 @@
 package com.app.fullyloaded.UI;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -91,8 +89,9 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
                 }
                 break;
             case R.id.txtLogin:
-                Intent intent = new Intent(mContext, LoginActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(mContext, LoginActivity.class);
+//                startActivity(intent);
+                finish();
                 break;
         }
     }
@@ -111,8 +110,9 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
                     String Status = JsonMain.getString("status");
                     if (Status.equalsIgnoreCase("SUCCESS")) {
                         Toast.makeText(mContext, message, Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(mContext, LoginActivity.class);
-                        startActivity(intent);
+//                        Intent intent = new Intent(mContext, LoginActivity.class);
+//                        startActivity(intent);
+                        finish();
                     } else {
                         Toast.makeText(mContext, message, Toast.LENGTH_LONG).show();
                     }

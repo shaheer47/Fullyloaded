@@ -7,6 +7,8 @@
     android:focusableInTouchMode="true"
     tools:context=".UI.CompetitionsDetailActivity">
 
+
+
     <RelativeLayout
         android:id="@+id/TopRelativeLayout"
         android:layout_width="match_parent"
@@ -43,7 +45,7 @@
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_140sdp"
             android:layout_centerHorizontal="true"
-            android:scaleType="fitXY"
+            android:scaleType="fitCenter"
             android:layout_margin="@dimen/_20sdp"/>
 
         <!--android:src="@drawable/laptop_big"-->
@@ -67,50 +69,67 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp">
-
-                <com.app.fullyloaded.Utility.MyTextView
-                    android:id="@+id/txtCompetitionName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_17sdp"
-                    app:medium="true"
-                    android:layout_marginLeft="@dimen/_15sdp" />
+                android:layout_marginTop="@dimen/_13sdp">
 
                 <com.app.fullyloaded.Utility.MyTextView
                     android:id="@+id/txtCompetitionType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textSize="@dimen/_8sdp"
+                    android:layout_alignParentTop="true"
                     android:textColor="@color/colorPrimary"
                     app:semi_bold="true"
                     android:background="@drawable/rounded_corner_border_colorprimary"
                     android:paddingLeft="@dimen/_10sdp"
                     android:paddingRight="@dimen/_10sdp"
-                    android:paddingTop="@dimen/_2sdp"
-                    android:paddingBottom="@dimen/_2sdp"
+                    android:paddingTop="@dimen/_1sdp"
+                    android:paddingBottom="@dimen/_1sdp"
                     android:layout_marginRight="@dimen/_15sdp"
+                    android:textSize="@dimen/_6sdp"
                     android:layout_alignParentRight="true"/>
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:id="@+id/txtCompetitionName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtCompetitionType"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_17sdp"
+                    app:medium="true"/>
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
                 <com.app.fullyloaded.Utility.MyTextView
                     android:id="@+id/txtCompetitionPrice"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="£2.25"
+                    android:gravity="center"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/_24sdp"
                     app:semi_bold="true"
                     android:layout_marginLeft="@dimen/_15sdp"
                     android:layout_centerVertical="true"/>
+
+                <com.app.fullyloaded.Utility.MyTextView
+                    android:id="@+id/txtCompetitionSalePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_toRightOf="@id/txtCompetitionPrice"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/bt_error_red"
+                    android:textSize="@dimen/_18ssp"
+                    app:bold="true"/>
 
                 <com.app.fullyloaded.Utility.MyTextView
                     android:id="@+id/txtQuiz"
@@ -119,11 +138,14 @@
                     android:textSize="@dimen/_18sdp"
                     android:text="Participate"
                     android:textColor="@color/white"
+                    android:gravity="center"
                     app:medium="true"
                     android:background="@drawable/rounded_corner_border"
                     android:backgroundTint="@color/colorPrimary"
                     android:paddingLeft="@dimen/_15sdp"
                     android:paddingRight="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/_15sdp"/>

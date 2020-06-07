@@ -32,6 +32,7 @@ import com.app.fullyloaded.Models.PreviousWinnersModel;
 import com.app.fullyloaded.R;
 import com.app.fullyloaded.Utility.MyTextView;
 import com.app.fullyloaded.VolleySupport.AppController;
+import com.app.fullyloaded.sharedPreference.SharedPreferencesEditor;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,6 +40,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HomeActivity extends BaseActivity {
 
@@ -53,13 +56,66 @@ public class HomeActivity extends BaseActivity {
     MyTextView txtBannerErrorTitle, txtCurrentCompetitionsTitle, txtCurrentTechCompetitionsTitle, txtPreviousWinnersTitle;
     MyTextView txtCartCount, txtTitle, txtDescription;
     ImageView LeftArrow, RightArrow;
+    int position, movePosition = 0;
+    SharedPreferencesEditor localStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+//        LeftArrow.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(movePosition > 0){
+//                    movePosition--;
+//                    SliderRecyclerView.smoothScrollToPosition(movePosition);
+//                }
+//            }
+//        });
+//
+//        RightArrow.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(movePosition <= BannerList.size()){
+//                    movePosition++;
+//                    SliderRecyclerView.smoothScrollToPosition(movePosition);
+//                }
+//            }
+//        });
+        localStorage = new SharedPreferencesEditor(this);
         Init();
+
+    }
+
+    private void Timer() {
+
+        Timer timer;
+        position = -1;
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        if (position == (BannerList.size())) {
+                            position = -1;
+                            position++;
+                        } else {
+                            position++;
+                        }
+                        SliderRecyclerView.smoothScrollToPosition(position);
+
+                        Log.d("TAG", "run: " + position);
+
+//                        recyclerview.smoothScrollToPosition(position)
+                    }
+                });
+
+            }
+        }, 1000, 2000); // delay*/
+
     }
 
     public void Init() {
@@ -67,12 +123,12 @@ public class HomeActivity extends BaseActivity {
         sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
         getSharedPreferences = getSharedPreferences("Remember", MODE_PRIVATE);
 
-        LeftArrow= findViewById(R.id.LeftArrow);
-        RightArrow= findViewById(R.id.RightArrow);
+        LeftArrow = findViewById(R.id.LeftArrow);
+        RightArrow = findViewById(R.id.RightArrow);
 
-        txtCartCount= findViewById(R.id.txtCartCount);
-        txtTitle= findViewById(R.id.txtTitle);
-        txtDescription= findViewById(R.id.txtDescription);
+        txtCartCount = findViewById(R.id.txtCartCount);
+        txtTitle = findViewById(R.id.txtTitle);
+        txtDescription = findViewById(R.id.txtDescription);
 
         txtBannerErrorTitle = findViewById(R.id.txtBannerErrorTitle);
         txtCurrentCompetitionsTitle = findViewById(R.id.txtCurrentCompetitionsTitle);
@@ -106,8 +162,6 @@ public class HomeActivity extends BaseActivity {
                     progressBar.setVisibility(View.GONE);
                     txtTitle.setVisibility(View.VISIBLE);
                     txtDescription.setVisibility(View.VISIBLE);
-                    LeftArrow.setVisibility(View.VISIBLE);
-                    RightArrow.setVisibility(View.VISIBLE);
                     Log.e("Response", "" + APIConstant.getInstance().HOME_PAGE + response);
                     JSONObject JsonMain = new JSONObject(response);
                     String message = JsonMain.getString("message");
@@ -142,6 +196,13 @@ public class HomeActivity extends BaseActivity {
                             currentCompetitionsModel.setCurrentCompetitionImage(jsonCurrentCompetition.getJSONObject(i).getString("curr_competition_image"));
                             currentCompetitionsModel.setCurrentCompetitionName(jsonCurrentCompetition.getJSONObject(i).getString("curr_competition_name"));
                             currentCompetitionsModel.setCurrentCompetitionPrice(jsonCurrentCompetition.getJSONObject(i).getString("curr_competition_price"));
+
+                            JSONObject sale = jsonCurrentCompetition.getJSONObject(i).getJSONObject("sale");
+                            if (sale.getString("status").equals("SUCCESS")) {
+                                double salePrice = sale.getDouble("price_after_sale");
+                                currentCompetitionsModel.setCurrentCompetitionSalePrice(salePrice + "");
+                            }
+
                             currentCompetitionList.add(currentCompetitionsModel);
                         }
                         if (currentCompetitionList.size() > 0) {
@@ -163,6 +224,13 @@ public class HomeActivity extends BaseActivity {
                             homeCurrentTechCompetitionsModel.setCurrentTechCompetitionImage(jsonCurrentTechCompetition.getJSONObject(j).getString("currTech_competition_image"));
                             homeCurrentTechCompetitionsModel.setCurrentTechCompetitionName(jsonCurrentTechCompetition.getJSONObject(j).getString("currTech_competition_name"));
                             homeCurrentTechCompetitionsModel.setCurrentTechCompetitionPrice(jsonCurrentTechCompetition.getJSONObject(j).getString("currTech_competition_price"));
+
+                            JSONObject sale = jsonCurrentTechCompetition.getJSONObject(j).getJSONObject("sale");
+                            if (sale.getString("status").equals("SUCCESS")) {
+                                double salePrice = sale.getDouble("price_after_sale");
+                                homeCurrentTechCompetitionsModel.setCurrentTechCompetitionSalePrice(salePrice + "");
+                            }
+
                             currentTechCompetitionList.add(homeCurrentTechCompetitionsModel);
                         }
                         if (currentTechCompetitionList.size() > 0) {
@@ -177,26 +245,38 @@ public class HomeActivity extends BaseActivity {
                             txtCurrentTechCompetitionsTitle.setVisibility(View.GONE);
                         }
 
-                        JSONArray jsonPreviousWinner = jsonHomePage.getJSONArray("previous_winner");
-                        for (int k = 0; k < jsonPreviousWinner.length(); k++) {
-                            PreviousWinnersModel previousWinnersModel = new PreviousWinnersModel();
-                            previousWinnersModel.setUserName(jsonPreviousWinner.getJSONObject(k).getString("user_name"));
-                            previousWinnersModel.setProfileImage(jsonPreviousWinner.getJSONObject(k).getString("profile_image"));
-                            previousWinnersModel.setWinningDate(jsonPreviousWinner.getJSONObject(k).getString("winning_date"));
-                            previousWinnersModel.setProductID(jsonPreviousWinner.getJSONObject(k).getString("product_id"));
-                            previousWinnersList.add(previousWinnersModel);
-                        }
-                        if (previousWinnersList.size() > 0) {
-                            txtPreviousWinnersTitle.setVisibility(View.VISIBLE);
-                            HomePreviousWinnersAdapter homePreviousWinnersAdapter = new HomePreviousWinnersAdapter(mContext, previousWinnersList);
-                            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(mContext, RecyclerView.HORIZONTAL, false);
-                            PreviousWinnersRecyclerView.setLayoutManager(mLayoutManager);
-                            PreviousWinnersRecyclerView.setItemAnimator(new DefaultItemAnimator());
-                            PreviousWinnersRecyclerView.setAdapter(homePreviousWinnersAdapter);
-                            homePreviousWinnersAdapter.notifyDataSetChanged();
-                        } else {
-                            txtPreviousWinnersTitle.setVisibility(View.GONE);
-                        }
+
+
+
+                        getPreviousWinners();
+
+                        ///////////////////////////////////////////Wrong Get strings
+//                        JSONArray jsonPreviousWinner = jsonHomePage.getJSONArray("previous_winner");
+////                        if(jsonPreviousWinner.length() > 0){
+////
+////                            LeftArrow.setVisibility(View.VISIBLE);
+////                            RightArrow.setVisibility(View.VISIBLE);
+////
+////                        }
+//                        for (int k = 0; k < jsonPreviousWinner.length(); k++) {
+//                            PreviousWinnersModel previousWinnersModel = new PreviousWinnersModel();
+//                            previousWinnersModel.setUserName(jsonPreviousWinner.getJSONObject(k).getString("user_name"));
+//                            previousWinnersModel.setProfileImage(jsonPreviousWinner.getJSONObject(k).getString("profile_image"));
+//                            previousWinnersModel.setWinningDate(jsonPreviousWinner.getJSONObject(k).getString("winning_date"));
+//                            previousWinnersModel.setProductID(jsonPreviousWinner.getJSONObject(k).getString("product_id"));
+//                            previousWinnersList.add(previousWinnersModel);
+//                        }
+//                        if (previousWinnersList.size() > 0) {
+//                            txtPreviousWinnersTitle.setVisibility(View.VISIBLE);
+//                            HomePreviousWinnersAdapter homePreviousWinnersAdapter = new HomePreviousWinnersAdapter(mContext, previousWinnersList);
+//                            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(mContext, RecyclerView.HORIZONTAL, false);
+//                            PreviousWinnersRecyclerView.setLayoutManager(mLayoutManager);
+//                            PreviousWinnersRecyclerView.setItemAnimator(new DefaultItemAnimator());
+//                            PreviousWinnersRecyclerView.setAdapter(homePreviousWinnersAdapter);
+//                            homePreviousWinnersAdapter.notifyDataSetChanged();
+//                        } else {
+//                            txtPreviousWinnersTitle.setVisibility(View.GONE);
+//                        }
                     } else {
                         Toast.makeText(mContext, message, Toast.LENGTH_LONG).show();
                     }
@@ -220,6 +300,78 @@ public class HomeActivity extends BaseActivity {
         };
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(100000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         AppController.getInstance().getRequestQueue().getCache().remove(APIConstant.getInstance().HOME_PAGE);
+        AppController.getInstance().addToRequestQueue(stringRequest, req);
+
+        Timer();
+
+    }
+
+    private void getPreviousWinners() {
+        String req = "req";
+        progressBar.setVisibility(View.VISIBLE);
+        previousWinnersList.clear();
+        final StringRequest stringRequest = new StringRequest(Request.Method.GET, APIConstant.getInstance().PREVIOUS_WINNERS, new Response.Listener<String>() {
+            @Override
+            public void onResponse(final String response) {
+                try {
+                    progressBar.setVisibility(View.GONE);
+                    Log.e("Response", "" + APIConstant.getInstance().PREVIOUS_WINNERS + response);
+                    JSONObject JsonMain = new JSONObject(response);
+                    String message = JsonMain.getString("message");
+                    String Status = JsonMain.getString("status");
+                    if (Status.equalsIgnoreCase("SUCCESS")) {
+                        JSONArray jsonPreviousWinners = JsonMain.getJSONArray("data");
+                        for (int i = 0; i < jsonPreviousWinners.length(); i++) {
+                            PreviousWinnersModel previousWinnersModel = new PreviousWinnersModel();
+
+                            previousWinnersModel.setProfileImage(jsonPreviousWinners.getJSONObject(i).getString("image"));
+                            previousWinnersModel.setDescription(jsonPreviousWinners.getJSONObject(i).getString("description"));
+                            previousWinnersModel.setUserName(jsonPreviousWinners.getJSONObject(i).getString("name"));
+
+//                            previousWinnersModel.setProfileImage(jsonPreviousWinners.getJSONObject(i).getString("profile_image"));
+//                            previousWinnersModel.setWinningDate(jsonPreviousWinners.getJSONObject(i).getString("winning_date"));
+//                            previousWinnersModel.setUserName(jsonPreviousWinners.getJSONObject(i).getString("user_name"));
+//                            previousWinnersModel.setDescription(jsonPreviousWinners.getJSONObject(i).getString("description"));
+//                            previousWinnersModel.setCompetitionID(jsonPreviousWinners.getJSONObject(i).getString("competiotion_id"));
+//                            previousWinnersModel.setCompetitionName(jsonPreviousWinners.getJSONObject(i).getString("competition_name"));
+//                            previousWinnersModel.setCompetitionImage(jsonPreviousWinners.getJSONObject(i).getString("competition_image"));
+//                            previousWinnersModel.setCompetitionSpecification(jsonPreviousWinners.getJSONObject(i).getString("competition_specification"));
+                            previousWinnersList.add(previousWinnersModel);
+                        }
+                        if (previousWinnersList.size() > 0) {
+                            txtPreviousWinnersTitle.setVisibility(View.VISIBLE);
+                            HomePreviousWinnersAdapter previousWinnersAdapter = new HomePreviousWinnersAdapter(mContext, previousWinnersList);
+                            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(mContext, RecyclerView.HORIZONTAL, false);
+                            PreviousWinnersRecyclerView.setLayoutManager(mLayoutManager);
+                            PreviousWinnersRecyclerView.setItemAnimator(new DefaultItemAnimator());
+                            PreviousWinnersRecyclerView.setAdapter(previousWinnersAdapter);
+                            previousWinnersAdapter.notifyDataSetChanged();
+                        } else {
+                            txtPreviousWinnersTitle.setVisibility(View.GONE);
+                        }
+                    } else {
+                        Toast.makeText(mContext, message, Toast.LENGTH_LONG).show();
+                    }
+                } catch (Exception e) {
+                    progressBar.setVisibility(View.GONE);
+                    e.printStackTrace();
+                }
+            }
+        },
+                new Response.ErrorListener() {
+                    public void onErrorResponse(VolleyError error) {
+                        progressBar.setVisibility(View.GONE);
+                    }
+                }) {
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                // params.put("email", edtEmail.getText().toString());
+                Log.e("PARAMETER", "" + APIConstant.getInstance().PREVIOUS_WINNERS + params);
+                return params;
+            }
+        };
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(100000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        AppController.getInstance().getRequestQueue().getCache().remove(APIConstant.getInstance().PREVIOUS_WINNERS);
         AppController.getInstance().addToRequestQueue(stringRequest, req);
     }
 
@@ -282,9 +434,8 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
-        String UserID = sharedPreferences.getString("UserID", "");
-        // Log.e("UserID", "" + UserID);
-        if (UserID.equals("0")) {
+
+        if (!localStorage.IsLoggedIn()) {
             txtCartCount.setVisibility(View.GONE);
         } else {
             CartDetailsApi();
@@ -307,4 +458,5 @@ public class HomeActivity extends BaseActivity {
             }
         }, 2000);
     }
+
 }

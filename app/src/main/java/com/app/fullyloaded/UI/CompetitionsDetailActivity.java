@@ -2,6 +2,7 @@ package com.app.fullyloaded.UI;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -22,10 +23,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.app.fullyloaded.Adapters.SimilarCurrentCompetitionsAdapter;
-import com.app.fullyloaded.Adapters.SpecificationAdapter;
 import com.app.fullyloaded.AppConstants.APIConstant;
 import com.app.fullyloaded.Models.CurrentCompetitionsModel;
-import com.app.fullyloaded.Models.SpecificationModel;
 import com.app.fullyloaded.R;
 import com.app.fullyloaded.Utility.MyTextView;
 import com.app.fullyloaded.VolleySupport.AppController;
@@ -42,7 +41,7 @@ public class CompetitionsDetailActivity extends AppCompatActivity implements Vie
 
     Context mContext;
     ImageView Back, CompetitionImageView;
-    MyTextView txtQuiz, txtCompetitionName, txtCompetitionType, txtCompetitionPrice, txtDescription, txtSpecifications, txtErrorTitle, txtCurrentCompetitionTitle;
+    MyTextView txtQuiz, txtCompetitionName, txtCompetitionType, txtCompetitionPrice, txtCompetitionSalePrice, txtDescription, txtSpecifications, txtErrorTitle, txtCurrentCompetitionTitle;
     RecyclerView CurrentCompetitionsRecyclerView;
     ArrayList<CurrentCompetitionsModel> currentCompetitionsList = new ArrayList<>();
     ProgressBar progressBar;
@@ -72,6 +71,7 @@ public class CompetitionsDetailActivity extends AppCompatActivity implements Vie
         txtCompetitionName = findViewById(R.id.txtCompetitionName);
         txtCompetitionType = findViewById(R.id.txtCompetitionType);
         txtCompetitionPrice = findViewById(R.id.txtCompetitionPrice);
+        txtCompetitionSalePrice = findViewById(R.id.txtCompetitionSalePrice);
         txtSpecifications = findViewById(R.id.txtSpecifications);
         txtDescription = findViewById(R.id.txtDescription);
         txtQuiz = findViewById(R.id.txtQuiz);
@@ -112,10 +112,16 @@ public class CompetitionsDetailActivity extends AppCompatActivity implements Vie
                     progressBar.setVisibility(View.GONE);
                     Log.e("Response", "" + APIConstant.getInstance().COMPETITION_DETAIL + response);
                     JSONObject JsonMain = new JSONObject(response);
+
+//                    Log.d("TAG", "onResponse: "+JsonMain);
+
                     String message = JsonMain.getString("message");
                     String Status = JsonMain.getString("status");
                     if (Status.equalsIgnoreCase("SUCCESS")) {
                         JSONObject jsonCompetitionDetail = JsonMain.getJSONObject("competitionDetail");
+
+
+
                         String CompetitionImage = jsonCompetitionDetail.getString("competition_image");
                         if (CompetitionImage.equals("") || CompetitionImage.equals("null") || CompetitionImage.equals(null) || CompetitionImage == null) {
                         } else {
@@ -138,6 +144,15 @@ public class CompetitionsDetailActivity extends AppCompatActivity implements Vie
                         if (CompetitionPrice.equals("") || CompetitionPrice.equals("null") || CompetitionPrice.equals(null) || CompetitionPrice == null) {
                         } else {
                             txtCompetitionPrice.setText("£" + CompetitionPrice);
+
+                            JSONObject sale = jsonCompetitionDetail.getJSONObject("sale");
+                            if (sale.getString("status").equals("SUCCESS")) {
+                                double salePrice = sale.getDouble("price_after_sale");
+                                txtCompetitionPrice.setText("£"+salePrice);
+                                txtCompetitionSalePrice.setText(CompetitionPrice + "");
+                                txtCompetitionSalePrice.setPaintFlags(txtCompetitionSalePrice.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
+                            }
+
                         }
 
                         String CompetitionDescription = jsonCompetitionDetail.getString("competition_description");

@@ -3,7 +3,6 @@ package com.app.fullyloaded.UI;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -19,7 +18,7 @@ import com.app.fullyloaded.Adapters.DrawerAdapter;
 import com.app.fullyloaded.Models.CartModel;
 import com.app.fullyloaded.Models.DrawerModel;
 import com.app.fullyloaded.R;
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.app.fullyloaded.sharedPreference.SharedPreferencesEditor;
 
 import java.util.ArrayList;
 
@@ -33,6 +32,7 @@ public class BaseActivity extends AppCompatActivity implements DrawerAdapter.Cli
     ArrayList<DrawerModel> drawerModelArrayList = new ArrayList<>();
     ArrayList<CartModel> cartList = new ArrayList<>();
     SharedPreferences preferences, sharedPreferences, getSharedPreferences;
+    SharedPreferencesEditor localStorage;
 
     @Override
     public void setContentView(int layoutResID) {
@@ -41,6 +41,8 @@ public class BaseActivity extends AppCompatActivity implements DrawerAdapter.Cli
         FrameLayout = DrawerLayout.findViewById(R.id.FrameLayout);
         getLayoutInflater().inflate(layoutResID, FrameLayout, true);
         super.setContentView(DrawerLayout);
+
+        localStorage = new SharedPreferencesEditor(this);
 
         Init();
 
@@ -133,7 +135,7 @@ public class BaseActivity extends AppCompatActivity implements DrawerAdapter.Cli
             }
             DrawerLayout.closeDrawer(GravityCompat.START);
         } else if (drawerModel.getID().equals("1")) {
-            if (UserID.equals("0")) {
+            if (!localStorage.IsLoggedIn()) {
                 if (!(mContext instanceof LoginActivity)) {
                     mContext.startActivity(new Intent(mContext, LoginActivity.class));
                 }
@@ -161,7 +163,7 @@ public class BaseActivity extends AppCompatActivity implements DrawerAdapter.Cli
             }
             DrawerLayout.closeDrawer(GravityCompat.START);
         } else if (drawerModel.getID().equals("3")) {
-            if (UserID.equals("0")) {
+            if (!localStorage.IsLoggedIn()) {
                 if (!(mContext instanceof LoginActivity)) {
                     mContext.startActivity(new Intent(mContext, LoginActivity.class));
                 }

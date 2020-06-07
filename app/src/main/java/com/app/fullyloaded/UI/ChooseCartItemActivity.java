@@ -14,23 +14,18 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.app.fullyloaded.Adapters.CategoryAdapter;
 import com.app.fullyloaded.AppConstants.APIConstant;
-import com.app.fullyloaded.Models.CategoryModel;
 import com.app.fullyloaded.R;
 import com.app.fullyloaded.Utility.MyTextView;
 import com.app.fullyloaded.VolleySupport.AppController;
+import com.app.fullyloaded.sharedPreference.SharedPreferencesEditor;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -50,6 +45,7 @@ public class ChooseCartItemActivity extends AppCompatActivity implements View.On
     boolean isChecked = false;
     String CurrentCompetitionID, CurrentCompetitionPrice, UserAnswer;
     SharedPreferences sharedPreferences, preferences, getSharedPreferences;
+    SharedPreferencesEditor localStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +55,7 @@ public class ChooseCartItemActivity extends AppCompatActivity implements View.On
         getSupportActionBar().hide();
 
         mContext = this;
+        localStorage = new SharedPreferencesEditor(this);
 
         Init();
     }
@@ -134,9 +131,7 @@ public class ChooseCartItemActivity extends AppCompatActivity implements View.On
                 }
                 break;
             case R.id.BottomRelativeLayout:
-                String UserID = sharedPreferences.getString("UserID", "");
-                // Log.e("UserID", "" + UserID);
-                if (UserID.equals("0")) {
+                if (!localStorage.IsLoggedIn()) {
                     Intent intent = new Intent(mContext, LoginActivity.class);
                     startActivity(intent);
                 } else {

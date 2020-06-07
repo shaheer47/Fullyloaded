@@ -36,7 +36,7 @@
         android:layout_height="match_parent"
         android:paddingTop="@dimen/_2sdp"
         android:layout_below="@id/TopRelativeLayout"
-        android:background="@drawable/white_top_corner_rounded_border"
+        android:background="@drawable/white_corner_rounded_border"
         android:backgroundTint="@color/background">
 
         <LinearLayout
@@ -196,7 +196,11 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/white_top_corner_rounded_border"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:background="@drawable/rounded_corner_border"
+        android:gravity="center"
         android:backgroundTint="@color/colorPrimary">
 
         <com.app.fullyloaded.Utility.MyTextView
@@ -204,6 +208,7 @@
             android:layout_height="wrap_content"
             android:text="Add to cart"
             android:textSize="@dimen/_20sdp"
+            android:gravity="center"
             app:semi_bold="true"
             android:textColor="@color/white"
             android:layout_centerInParent="true"/>

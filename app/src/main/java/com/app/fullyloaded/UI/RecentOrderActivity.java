@@ -1,7 +1,6 @@
 package com.app.fullyloaded.UI;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +11,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,7 +19,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.app.fullyloaded.Adapters.CurrentCompetitionsAdapter;
 import com.app.fullyloaded.Adapters.OrderAdapter;
 import com.app.fullyloaded.AppConstants.APIConstant;
 import com.app.fullyloaded.Models.OrderModel;
@@ -99,7 +96,7 @@ public class RecentOrderActivity extends AppCompatActivity implements View.OnCli
                     String Status = JsonMain.getString("status");
                     if (Status.equalsIgnoreCase("SUCCESS")) {
                         JSONArray jsonRecentOrder = JsonMain.getJSONArray("recentOrder");
-                        for (int i = 0; i > jsonRecentOrder.length(); i++) {
+                        for (int i = 0; i < jsonRecentOrder.length(); i++) {
                             OrderModel orderModel = new OrderModel();
                             orderModel.setProductName(jsonRecentOrder.getJSONObject(i).getString("product_name"));
                             orderModel.setProductImage(jsonRecentOrder.getJSONObject(i).getString("product_image"));

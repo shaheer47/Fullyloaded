@@ -2,7 +2,7 @@ package com.app.fullyloaded.Models;
 
 public class CurrentCompetitionsModel {
 
-    private String CurrentCompetitionID, CurrentCompetitionImage, CurrentCompetitionName, CurrentCompetitionPrice, CurrentCompetitionType;
+    private String CurrentCompetitionID, CurrentCompetitionImage, CurrentCompetitionName, CurrentCompetitionPrice, CurrentCompetitionSalePrice = "", CurrentCompetitionType;
 
     /*public CurrentCompetitionsModel(String CurrentCompetitionID, String CurrentCompetitionImage, String CurrentCompetitionName, String CurrentCompetitionPrice, String CurrentCompetitionType) {
         this.CurrentCompetitionID = CurrentCompetitionID;
@@ -11,6 +11,14 @@ public class CurrentCompetitionsModel {
         this.CurrentCompetitionPrice = CurrentCompetitionPrice;
         this.CurrentCompetitionType = CurrentCompetitionType;
     }*/
+
+    public String getCurrentCompetitionSalePrice() {
+        return CurrentCompetitionSalePrice;
+    }
+
+    public void setCurrentCompetitionSalePrice(String currentCompetitionSalePrice) {
+        CurrentCompetitionSalePrice = currentCompetitionSalePrice;
+    }
 
     public String getCurrentCompetitionID() {
         return CurrentCompetitionID;

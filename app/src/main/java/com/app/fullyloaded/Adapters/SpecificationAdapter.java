@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.fullyloaded.Models.CartModel;
 import com.app.fullyloaded.Models.SpecificationModel;
 import com.app.fullyloaded.R;
 import com.app.fullyloaded.Utility.MyTextView;

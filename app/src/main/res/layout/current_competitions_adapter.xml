@@ -14,16 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_100sdp"
         android:src="@drawable/bmw"
-        android:scaleType="fitXY"
-        android:layout_margin="@dimen/_2sdp"/>
+        android:layout_marginTop="@dimen/_10sdp"
+        android:scaleType="fitCenter"/>
 
     <com.app.fullyloaded.Utility.MyTextView
         android:id="@+id/txtCurrentCompetitionsProductName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/CurrentCompetitionsProductImage"
         android:text="Sample Product"
-        android:textSize="@dimen/_13sdp"
+        android:textSize="@dimen/_13ssp"
         android:textColor="@color/black"
         app:medium="true"
         android:layout_centerHorizontal="true"
@@ -32,11 +32,12 @@
 
     <LinearLayout
         android:id="@+id/CurrentCompetitionsProductNameLinearLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-10dp"
         android:layout_below="@id/txtCurrentCompetitionsProductName">
 
         <com.app.fullyloaded.Utility.MyTextView
@@ -48,6 +49,20 @@
             android:textColor="@color/colorPrimary"
             app:semi_bold="true"
             android:layout_centerHorizontal="true"/>
+
+        <com.app.fullyloaded.Utility.MyTextView
+            android:id="@+id/txtCurrentCompetitionsSalePrice"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="£2.25"
+            android:textColor="@color/bt_error_red"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="visible"
+            app:bold="true"/>
+
 
         <com.app.fullyloaded.Utility.MyTextView
             android:id="@+id/txtCategoryName"
@@ -82,7 +97,7 @@
         android:background="@drawable/rounded_corner_border"
         android:backgroundTint="@color/colorPrimary"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:layout_marginBottom="@dimen/_5sdp"/>
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_10sdp"/>
 
 </RelativeLayout>

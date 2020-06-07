@@ -5,18 +5,13 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.fullyloaded.Models.CategoryModel;
-import com.app.fullyloaded.Models.CurrentCompetitionsModel;
 import com.app.fullyloaded.R;
-import com.app.fullyloaded.UI.CompetitionsDetailActivity;
 import com.app.fullyloaded.UI.CurrentCompetitionsActivity;
 import com.app.fullyloaded.Utility.MyTextView;
-import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
 

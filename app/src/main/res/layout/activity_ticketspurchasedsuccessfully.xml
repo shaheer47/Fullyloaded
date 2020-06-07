@@ -46,7 +46,7 @@
                 android:id="@+id/txtTicketPurchasedStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Successfully Purchased 4 Tickets"
+                android:text="Successfully Purchased Tickets"
                 android:textSize="@dimen/_25sdp"
                 app:semi_bold="true"
                 android:textColor="@color/white"
@@ -59,6 +59,7 @@
             <com.app.fullyloaded.Utility.MyTextView
                 android:id="@+id/txtConfirmationStatus"
                 android:layout_width="wrap_content"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:text="We sent a confirmation email with Detail to Demo@gmail.com"
                 android:textSize="@dimen/_18sdp"

@@ -3,6 +3,7 @@ package com.app.fullyloaded.UI;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -24,6 +26,8 @@ import com.app.fullyloaded.Utility.MyEditText;
 import com.app.fullyloaded.Utility.MyTextView;
 import com.app.fullyloaded.VolleySupport.AppController;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -46,9 +50,11 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
 
         getSupportActionBar().hide();
 
+
         mContext = this;
 
         Init();
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     public void Init() {
@@ -57,8 +63,9 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
         getSharedPreferences = getSharedPreferences("Remember", MODE_PRIVATE);
 
         progressBar = findViewById(R.id.progressBar);
-
+        getShippingData();
         Back = findViewById(R.id.Back);
+
 
         edtName = findViewById(R.id.edtName);
         edtCountry = findViewById(R.id.edtCountry);
@@ -133,7 +140,7 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
                     String Status = JsonMain.getString("status");
                     if (Status.equalsIgnoreCase("SUCCESS")) {
                         /*JSONObject jsonLogin = JsonMain.getJSONObject("login");*/
-                        Intent intent = new Intent(mContext, ShippingAddressActivity.class);
+                        Intent intent = new Intent(mContext, AddressesActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
@@ -170,4 +177,110 @@ public class ShippingAddressActivity extends AppCompatActivity implements View.O
         AppController.getInstance().getRequestQueue().getCache().remove(APIConstant.getInstance().SAVE_SHIPPING_ADDRESS);
         AppController.getInstance().addToRequestQueue(stringRequest, req);
     }
+
+
+    private void getShippingData() {
+        String req = "req";
+        final StringRequest stringRequest = new StringRequest(Request.Method.POST, APIConstant.getInstance().GET_SHIPPING_ADDRESS, new Response.Listener<String>() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray address = jsonObject.getJSONArray("address");
+                    if (address.length() >= 1) {
+                        setShippingAddress(address);
+                        progressBar.setVisibility(View.GONE);
+
+
+                    }
+                } catch (JSONException e) {
+                    progressBar.setVisibility(View.GONE);
+                    e.printStackTrace();
+                }
+
+
+            }
+        },
+                new Response.ErrorListener() {
+                    public void onErrorResponse(VolleyError error) {
+                    }
+                }) {
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("token", sharedPreferences.getString("Token", ""));
+                return params;
+            }
+        };
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(100000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        AppController.getInstance().getRequestQueue().getCache().remove(APIConstant.getInstance().HOME_PAGE);
+        AppController.getInstance().addToRequestQueue(stringRequest, req);
+
+
+    }
+
+    private void setShippingAddress(JSONArray maddress) {
+
+        try {
+
+            for (int i = 0; i < maddress.length(); i++) {
+
+                JSONObject address = maddress.getJSONObject(i);
+
+                if (address.getString("first_name").equals("") || address.getString("first_name").equals("null") || address.getString("first_name").equals(null) || address.getString("first_name") == null) {
+                } else {
+                    edtName.setText(address.getString("first_name"));
+                }
+                if (address.getString("last_name").equals("") || address.getString("last_name").equals("null") || address.getString("last_name").equals(null) || address.getString("last_name") == null) {
+                } else {
+                    edtName.setText(edtName.getText().toString() + " " + address.getString("last_name"));
+                }
+                if (address.getString("country_name").equals("") || address.getString("country_name").equals("null") || address.getString("country_name").equals(null) || address.getString("country_name") == null) {
+                } else {
+                    edtCountry.setText(address.getString("country_name"));
+                }
+                if (address.getString("street_address").equals("") || address.getString("street_address").equals("null") || address.getString("street_address").equals(null) || address.getString("street_address") == null) {
+                } else {
+                    edtStreetAddress.setText(address.getString("street_address"));
+                }
+                if (address.getString("town_city_name").equals("") || address.getString("town_city_name").equals("null") || address.getString("town_city_name").equals(null) || address.getString("town_city_name") == null) {
+                } else {
+                    edtTownCity.setText(address.getString("town_city_name"));
+                }
+
+                if (address.getString("state_name").equals("") || address.getString("state_name").equals("null") || address.getString("state_name").equals(null) || address.getString("state_name") == null) {
+                } else {
+
+                    edtStateCounty.setText(address.getString("state_name"));
+                }
+
+                if (address.getString("postal_code").equals("") || address.getString("postal_code").equals("null") || address.getString("postal_code").equals(null) || address.getString("postal_code") == null) {
+                } else {
+
+                    edtPostalCodeZipCode.setText(address.getString("postal_code"));
+                }
+
+                if (address.getString("mobile_number").equals("") || address.getString("mobile_number").equals("null") || address.getString("mobile_number").equals(null) || address.getString("mobile_number") == null) {
+                } else {
+                    edtMobileNumber.setText(address.getString("mobile_number"));
+                }
+
+                if (address.getString("email").equals("") || address.getString("email").equals("null") || address.getString("email").equals(null) || address.getString("email") == null) {
+                } else {
+                    edtEmail.setText(address.getString("email"));
+                }
+            }
+            progressBar.setVisibility(View.GONE);
+
+
+        } catch (JSONException e) {
+            progressBar.setVisibility(View.GONE);
+
+            e.printStackTrace();
+        }
+
+
+    }
+
 }

@@ -67,11 +67,11 @@ public class HomePreviousWinnersAdapter extends RecyclerView.Adapter<HomePreviou
             holder.txtPreviousWinnerName.setText(UserName);
         }
 
-        if (WinningDate.equals("") || WinningDate.equals("null") || WinningDate.equals(null) || WinningDate == null) {
-
-        } else {
-            holder.txtPreviousWinningDate.setText(WinningDate);
-        }
+//        if (WinningDate.equals("") || WinningDate.equals("null") || WinningDate.equals(null) || WinningDate == null) {
+//
+//        } else {
+//            holder.txtPreviousWinningDate.setText(WinningDate);
+//        }
     }
 
     @Override

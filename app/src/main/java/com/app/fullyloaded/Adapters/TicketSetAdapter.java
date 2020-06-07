@@ -8,7 +8,6 @@ import android.widget.RelativeLayout;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.fullyloaded.Models.SpecificationModel;
 import com.app.fullyloaded.Models.TicketSetModel;
 import com.app.fullyloaded.R;
 import com.app.fullyloaded.Utility.MyTextView;

@@ -3,7 +3,6 @@ package com.app.fullyloaded.UI;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -11,9 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.fullyloaded.R;
 import com.app.fullyloaded.Utility.MyTextView;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class TicketsPurchasedSuccessfullyActivity extends AppCompatActivity implements View.OnClickListener {
 
