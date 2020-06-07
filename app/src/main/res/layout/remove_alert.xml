@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background"
+    android:orientation="vertical">
+
+    <com.app.fullyloaded.Utility.MyTextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remove_coupon_text"
+        android:textSize="@dimen/_18ssp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_margin="@dimen/_5sdp"
+        app:regular="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:gravity="center">
+
+        <com.app.fullyloaded.Utility.MyTextView
+            android:id="@+id/txtCancel"
+            android:layout_width="0dp"
+            android:layout_weight="0.35"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textSize="@dimen/_16ssp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/colorPrimary"
+            app:regular="true"
+            android:padding="@dimen/_5sdp" />
+
+        <com.app.fullyloaded.Utility.MyTextView
+            android:id="@+id/txtRemove"
+            android:layout_width="0dp"
+            android:layout_weight="0.35"
+            android:layout_height="wrap_content"
+            android:text="Remove"
+            android:textSize="@dimen/_16ssp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/bt_error_red"
+            app:regular="true"
+            android:padding="@dimen/_5sdp" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
