@@ -38,7 +38,7 @@ public class PrivacyPolicyActivity extends AppCompatActivity implements View.OnC
 
 
         progressBar.setVisibility(View.VISIBLE);
-        webView.loadUrl("http://fullyloaded.ie/privacyPolicy");
+        webView.loadUrl("https://fullyloaded.ie/privacyPolicy");
 
 
         webView.setWebViewClient(new WebViewClient() {

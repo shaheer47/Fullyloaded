@@ -62,7 +62,7 @@ public class CurrentCompetitionsAdapter extends RecyclerView.Adapter<CurrentComp
         }
 
         if (CurrentCompetitionSalePrice.equals("") || CurrentCompetitionSalePrice.equals("null") || CurrentCompetitionSalePrice.equals(null) || CurrentCompetitionSalePrice == null) {
-            holder.salePrice.setVisibility(View.INVISIBLE);
+            holder.salePrice.setVisibility(View.GONE);
         } else {
             holder.salePrice.setText(CurrentCompetitionSalePrice);
             holder.salePrice.setPaintFlags(holder.salePrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);

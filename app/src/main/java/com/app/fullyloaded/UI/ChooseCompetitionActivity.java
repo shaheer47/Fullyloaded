@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -38,8 +39,10 @@ import java.util.Map;
 
 public class ChooseCompetitionActivity extends AppCompatActivity implements View.OnClickListener {
 
+    LinearLayout dropdown_layout;
+
     Context mContext;
-    ImageView Back;
+    ImageView Back, dropDown;
     MyTextView txtErrorTitle, txtSelectTitle, txtParticipate;
     ArrayList<CategoryModel> CategoryList = new ArrayList<>();
     ProgressBar progressBar;
@@ -59,6 +62,8 @@ public class ChooseCompetitionActivity extends AppCompatActivity implements View
 
         mContext = this;
 
+        Toast.makeText(mContext, "Please Select a Competition", Toast.LENGTH_SHORT).show();
+
         Init();
     }
 
@@ -71,7 +76,11 @@ public class ChooseCompetitionActivity extends AppCompatActivity implements View
 //        txtCompetitionCategoryTitle.setText(CategoryName);
         CurrentCompetitionsRecyclerView = findViewById(R.id.CurrentCompetitionsRecyclerView);
 
+        dropdown_layout = findViewById(R.id.select);
+
         progressBar = findViewById(R.id.progressBar);
+
+        dropDown = findViewById(R.id.drop_down);
 
         txtErrorTitle = findViewById(R.id.txtErrorTitle);
         txtSelectTitle = findViewById(R.id.txtSelectTitle);
@@ -81,6 +90,7 @@ public class ChooseCompetitionActivity extends AppCompatActivity implements View
 
         Back.setOnClickListener(this);
         txtSelectTitle.setOnClickListener(this);
+        dropDown.setOnClickListener(this);
 
         txtParticipate.setVisibility(View.GONE);
         txtParticipate.setOnClickListener(this);
@@ -98,6 +108,14 @@ public class ChooseCompetitionActivity extends AppCompatActivity implements View
             case R.id.txtSelectTitle:
                 showPopupMenu(view);
                 break;
+            case R.id.drop_down:
+                showPopupMenu(txtSelectTitle);
+                break;
+
+//            case R.id.select:
+//                showPopupMenu(txtSelectTitle);
+//                break;
+
 
 //       case R.id.txtParticipate:
 //                if (Category.equals("")) {

@@ -38,7 +38,7 @@ public class TermConditionActivity extends AppCompatActivity implements View.OnC
         progressBar.setVisibility(View.VISIBLE);
 
 
-        webView.loadUrl("http://fullyloaded.ie/termsCondition");
+        webView.loadUrl("https://fullyloaded.ie/termsCondition");
 
 
         webView.setWebViewClient(new WebViewClient() {

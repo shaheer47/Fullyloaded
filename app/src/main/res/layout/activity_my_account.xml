@@ -108,7 +108,7 @@
                         <com.app.fullyloaded.Utility.MyTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Dashboard"
+                            android:text="Home"
                             android:textSize="@dimen/_18sdp"
                             app:medium="true"
                             android:textColor="@color/dark_grey"

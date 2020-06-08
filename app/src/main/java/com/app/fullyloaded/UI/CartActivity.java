@@ -394,7 +394,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
                         if (coupan.getString("status").equals("SUCCESS")) {
 
                             tokenName.setText(coupan.getString("coupan"));
-                            totalAmount.setText(coupan.getString("price"));
+                            totalAmount.setText(JsonMain.getString("price_after_discount"));
                             btn_applyCoupon.setClickable(false);
                             btn_removeCoupon.setVisibility(View.VISIBLE);
 
@@ -410,6 +410,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
                             CartItemRecyclerView.setItemAnimator(new DefaultItemAnimator());
                             CartItemRecyclerView.setAdapter(cartAdapter);
                             cartAdapter.notifyDataSetChanged();
+
                         } else {
                             txtErrorTitle.setVisibility(View.VISIBLE);
                             layoutBottom.setVisibility(View.GONE);
@@ -682,7 +683,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
         paymentBrands.add("AMEX");
         paymentBrands.add("DIRECTDEBIT_SEPA");
 
-        CheckoutSettings checkoutSettings = new CheckoutSettings(mcheckoutId, paymentBrands, Connect.ProviderMode.TEST);
+        CheckoutSettings checkoutSettings = new CheckoutSettings(mcheckoutId, paymentBrands, Connect.ProviderMode.LIVE);
         checkoutSettings.setShopperResultUrl("com.wedefineapps.fullyloaded.payments://result");
 
         Intent intent = checkoutSettings.createCheckoutActivityIntent(CartActivity.this);

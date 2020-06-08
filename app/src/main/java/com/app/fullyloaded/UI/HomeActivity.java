@@ -64,25 +64,25 @@ public class HomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-//        LeftArrow.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(movePosition > 0){
-//                    movePosition--;
-//                    SliderRecyclerView.smoothScrollToPosition(movePosition);
-//                }
-//            }
-//        });
-//
-//        RightArrow.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(movePosition <= BannerList.size()){
-//                    movePosition++;
-//                    SliderRecyclerView.smoothScrollToPosition(movePosition);
-//                }
-//            }
-//        });
+        LeftArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (movePosition > 0) {
+                    movePosition = movePosition - 2;
+                    PreviousWinnersRecyclerView.smoothScrollToPosition(movePosition);
+                }
+            }
+        });
+
+        RightArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (movePosition <= BannerList.size()) {
+                    movePosition = movePosition + 2;
+                    PreviousWinnersRecyclerView.smoothScrollToPosition(movePosition);
+                }
+            }
+        });
         localStorage = new SharedPreferencesEditor(this);
         Init();
 
@@ -339,6 +339,9 @@ public class HomeActivity extends BaseActivity {
                             previousWinnersList.add(previousWinnersModel);
                         }
                         if (previousWinnersList.size() > 0) {
+                            RightArrow.setVisibility(View.VISIBLE);
+                            LeftArrow.setVisibility(View.VISIBLE);
+
                             txtPreviousWinnersTitle.setVisibility(View.VISIBLE);
                             HomePreviousWinnersAdapter previousWinnersAdapter = new HomePreviousWinnersAdapter(mContext, previousWinnersList);
                             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(mContext, RecyclerView.HORIZONTAL, false);
